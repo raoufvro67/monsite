@@ -32,7 +32,7 @@ const items = [
 export default function Timeline() {
   return (
     <div className="relative">
-      <div className="absolute left-[7px] top-2 bottom-2 w-px bg-zinc-800" />
+      <div className="absolute left-[7px] top-2 bottom-2 w-px bg-zinc-200 dark:bg-zinc-800" />
       <div className="space-y-6">
         {items.map((item, i) => (
           <div key={i} className="flex gap-4 pl-6 relative">
@@ -40,16 +40,16 @@ export default function Timeline() {
               className={`absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 ${
                 item.type === "work"
                   ? "bg-blue-500 border-blue-400"
-                  : "bg-zinc-700 border-zinc-500"
+                  : "bg-zinc-300 border-zinc-400 dark:bg-zinc-700 dark:border-zinc-500"
               }`}
             />
             <div className="space-y-1">
               <div className="flex items-baseline gap-2 flex-wrap">
                 <span className="text-sm font-medium">{item.title}</span>
-                <span className="text-xs text-zinc-500">{item.place}</span>
+                <span className="text-xs text-zinc-400 dark:text-zinc-500">{item.place}</span>
               </div>
-              <p className="text-xs text-zinc-500">{item.desc}</p>
-              <span className="text-xs font-mono text-zinc-600">{item.year}</span>
+              <p className="text-xs text-zinc-400 dark:text-zinc-500">{item.desc}</p>
+              <span className="text-xs font-mono text-zinc-400 dark:text-zinc-600">{item.year}</span>
             </div>
           </div>
         ))}

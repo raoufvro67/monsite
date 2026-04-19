@@ -10,6 +10,7 @@ export type PostMeta = {
   date: string;
   description: string;
   tags: string[];
+  github?: string;
 };
 
 export function getAllPosts(): PostMeta[] {
@@ -28,6 +29,7 @@ export function getAllPosts(): PostMeta[] {
         date: data.date ?? "",
         description: data.description ?? "",
         tags: data.tags ?? [],
+        github: data.github,
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -47,6 +49,7 @@ export function getPostBySlug(slug: string) {
       date: data.date ?? "",
       description: data.description ?? "",
       tags: data.tags ?? [],
+      github: data.github,
     } as PostMeta,
     content,
   };

@@ -38,15 +38,15 @@ export default function SpotifyWidget() {
 
   if (loading) {
     return (
-      <div className="h-16 rounded-xl bg-zinc-900 border border-zinc-800 animate-pulse" />
+      <div className="h-16 rounded-xl bg-zinc-100 border border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 animate-pulse" />
     );
   }
 
   if (!track) {
     return (
-      <div className="flex items-center gap-3 p-4 rounded-xl bg-zinc-900 border border-zinc-800">
-        <SpotifyIcon className="text-zinc-600" />
-        <span className="text-sm text-zinc-500">Spotify non configuré</span>
+      <div className="flex items-center gap-3 p-4 rounded-xl bg-zinc-100 border border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800">
+        <SpotifyIcon className="text-zinc-400 dark:text-zinc-600" />
+        <span className="text-sm text-zinc-400 dark:text-zinc-500">Spotify non configuré</span>
       </div>
     );
   }
@@ -56,7 +56,7 @@ export default function SpotifyWidget() {
       href={track.songUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 transition-colors group"
+      className="flex items-center gap-4 p-4 rounded-xl bg-zinc-100 border border-zinc-200 hover:border-zinc-400 dark:bg-zinc-900 dark:border-zinc-800 dark:hover:border-zinc-600 transition-colors group"
     >
       {track.albumImageUrl && (
         <Image
@@ -70,12 +70,12 @@ export default function SpotifyWidget() {
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
           <SpotifyIcon className="text-green-500 flex-shrink-0" />
-          <span className="text-xs text-zinc-500">
+          <span className="text-xs text-zinc-400 dark:text-zinc-500">
             {track.isPlaying ? "En écoute" : "Dernière écoute"}
           </span>
         </div>
         <p className="text-sm font-medium truncate mt-0.5">{track.title}</p>
-        <p className="text-xs text-zinc-400 truncate">{track.artist}</p>
+        <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate">{track.artist}</p>
       </div>
       {track.isPlaying && (
         <div className="flex items-end gap-0.5 h-4 flex-shrink-0">
