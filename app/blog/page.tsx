@@ -9,8 +9,8 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen bg-white text-zinc-900 dark:bg-[#0a0a0a] dark:text-white">
+      <Header />
       <div className="max-w-2xl mx-auto px-6 py-16 space-y-12">
-        <Header />
         <header className="space-y-1">
           <h1 className="text-2xl font-semibold">Blog</h1>
           <p className="text-zinc-500 dark:text-zinc-400 text-sm">

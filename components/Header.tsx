@@ -4,10 +4,10 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between">
+    <header className="w-full flex items-center justify-between px-12 py-5 border-b border-zinc-200 dark:border-zinc-800">
       <Link
         href="/"
-        className="font-bold text-lg tracking-tight text-zinc-900 dark:text-white hover:opacity-70 transition-opacity"
+        className="font-bold text-xl tracking-tight text-zinc-900 dark:text-white hover:opacity-70 transition-opacity"
       >
         vro
       </Link>

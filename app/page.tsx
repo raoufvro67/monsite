@@ -28,26 +28,39 @@ function SocialBadge({ href, children }: { href: string; children: React.ReactNo
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-zinc-900 dark:bg-[#0a0a0a] dark:text-white">
+      <Header />
       <div className="max-w-2xl mx-auto px-6 py-16 space-y-10">
 
-        <Header />
-
         {/* Name */}
-        <h1 className="text-3xl font-bold">Abderaouf Boubachiche</h1>
+        <div>
+          <h1 className="text-3xl font-bold">Abderaouf Boubachiche</h1>
+          <p className="text-zinc-500 dark:text-zinc-400 mt-1">Software Engineer</p>
+        </div>
 
         {/* Bio */}
         <div className="space-y-5 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-300">
           <p>
-            Hello 👋 Je suis étudiant en licence informatique à{" "}
-            <Badge>🎓 UFR Strasbourg</Badge>, passionné par le développement web et tout ce qui touche à la tech.
+            Hello 👋 Je suis étudiant en <Badge>🎓 Licence Informatique</Badge> à l&apos;Université de Strasbourg,
+            futur étudiant en master <Badge>MIAGE</Badge> rentrée 2026. Je recherche une alternance
+            (3 semaines en entreprise / 1 semaine en formation).
           </p>
 
           <p>
-            Après avoir commencé une licence de mathématiques, j&apos;ai décidé de me réorienter vers l&apos;informatique — un domaine qui m&apos;attire bien plus par les possibilités concrètes qu&apos;il offre.
+            Passionné par la conception logicielle, le développement et les systèmes d&apos;information,
+            je combine rigueur technique et esprit d&apos;équipe.
           </p>
 
           <p>
-            En parallèle de mes études, je travaille sur des projets personnels que je documente sur ce site. Vous pouvez retrouver mes articles sur la page{" "}
+            J&apos;ai eu l&apos;opportunité de faire deux stages : développeur fullstack chez{" "}
+            <Badge>KYO Conseil</Badge> où j&apos;ai travaillé sur une API REST <Badge>Spring Boot</Badge> au sein
+            d&apos;une équipe agile, et designer UI/UX chez <Badge>GBBS-IT</Badge> où j&apos;ai conçu
+            des interfaces et maquettes sur <Badge>Figma</Badge>.
+          </p>
+
+          <p>
+            Je travaille sur des projets personnels que je documente sur ce site — un jeu multijoueur loups-garous
+            avec <Badge>Godot</Badge> et <Badge>FastAPI</Badge>, un projet <Badge>ML/IA</Badge> avec PyTorch,
+            et une application SaaS de conversion de documents. Retrouve-les sur la page{" "}
             <Link
               href="/blog"
               className="underline underline-offset-2 text-zinc-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -57,16 +70,14 @@ export default function Home() {
           </p>
 
           <p>
-            J&apos;apprends le développement web avec{" "}
-            <Badge>🌐 HTML</Badge>{" "}
-            <Badge>🎨 CSS</Badge>{" "}
-            <Badge>⚡ JavaScript</Badge>{" "}
-            et je commence à explorer{" "}
-            <Badge>⚛️ React</Badge> et <Badge>▲ Next.js</Badge>.
+            Ma stack principale :{" "}
+            <Badge>React</Badge> <Badge>Next.js</Badge> <Badge>TypeScript</Badge>{" "}
+            <Badge>Python</Badge> <Badge>Java</Badge> <Badge>Docker</Badge>{" "}
+            <Badge>PostgreSQL</Badge>.
           </p>
 
           <p>
-            En dehors de la programmation, j&apos;aime la musique, les séries, les maths (oui, toujours un peu) et les échecs.
+            En dehors du code, j&apos;aime la musique, les séries, les échecs et les maths (toujours un peu).
           </p>
         </div>
 
