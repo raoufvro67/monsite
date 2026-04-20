@@ -1,0 +1,43 @@
+---
+title: "Mon portfolio — construit avec Next.js"
+date: "2026-04-20"
+description: "Comment j'ai construit mon site portfolio avec Next.js, Tailwind, un blog MDX, un widget Apple Music et un widget Chess.com."
+tags: ["projet", "web", "next.js", "typescript", "tailwind"]
+github: "https://github.com/raoufvro67/monsite"
+---
+
+## Présentation
+
+Ce site est mon portfolio personnel — celui que tu es en train de lire. Je l'ai construit from scratch avec **Next.js 15** et **Tailwind CSS**, dans l'objectif d'avoir un espace qui me représente vraiment : sobre, rapide, et avec quelques touches personnelles.
+
+## Stack technique
+
+- **Next.js 15** (App Router) — framework principal
+- **TypeScript** — typage strict sur tout le projet
+- **Tailwind CSS** — styles utilitaires
+- **MDX** (next-mdx-remote) — pour le système de blog
+- **Vercel** — hébergement et déploiement continu
+
+## Fonctionnalités
+
+### Blog MDX
+
+Les articles sont des fichiers `.mdx` dans `content/posts/`. Le système lit les fichiers, parse le frontmatter avec `gray-matter`, et rend le contenu avec `next-mdx-remote`. Chaque article peut avoir un champ `github` optionnel qui affiche un bouton "Voir sur GitHub".
+
+### Dark mode
+
+Thème clair/sombre avec persistance en `localStorage`. Un script inline dans le `<head>` initialise le bon thème avant le rendu pour éviter le flash.
+
+### Widget Apple Music
+
+Affiche le dernier morceau écouté via l'API **Last.fm** — qui se synchronise automatiquement avec Apple Music via scrobbling. Le widget se rafraîchit toutes les 30 secondes.
+
+### Widget Chess.com
+
+Affiche mes ratings (Rapid, Blitz, Bullet) en temps réel depuis l'API publique Chess.com, avec un bouton **"Jouer contre moi"** qui lance directement une partie.
+
+## Ce que j'ai appris
+
+C'est le premier projet où j'ai utilisé le **App Router** de Next.js dans sa totalité — les Server Components, les routes API, `generateStaticParams` pour les pages statiques. La différence avec le Pages Router est assez grande au début, mais ça devient naturel.
+
+Travailler avec **MDX** m'a aussi appris à bien structurer un système de contenu simple sans CMS.
