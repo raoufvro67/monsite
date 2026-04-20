@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Header from "@/components/Header";
 import { getAllPosts } from "@/lib/mdx";
 
 export const metadata = { title: "Blog — Ton Nom" };
@@ -9,11 +10,9 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen bg-white text-zinc-900 dark:bg-[#0a0a0a] dark:text-white">
       <div className="max-w-2xl mx-auto px-6 py-16 space-y-12">
-        <header className="space-y-2">
-          <Link href="/" className="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors">
-            ← Retour
-          </Link>
-          <h1 className="text-2xl font-semibold mt-4">Blog</h1>
+        <Header />
+        <header className="space-y-1">
+          <h1 className="text-2xl font-semibold">Blog</h1>
           <p className="text-zinc-500 dark:text-zinc-400 text-sm">
             {posts.length} article{posts.length !== 1 ? "s" : ""}
           </p>
