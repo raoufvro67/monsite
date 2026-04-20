@@ -40,9 +40,8 @@ export default function Home() {
         {/* Bio */}
         <div className="space-y-5 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-300">
           <p>
-            Hello 👋 Je suis étudiant en <Badge>🎓 Licence Informatique</Badge> à l&apos;Université de Strasbourg,
-            futur étudiant en master <Badge>MIAGE</Badge> rentrée 2026. Je recherche une alternance
-            (3 semaines en entreprise / 1 semaine en formation).
+            Hello 👋 Je suis un étudiant en <Badge>🎓 Licence Informatique</Badge> à l&apos;Université de Strasbourg,
+            futur étudiant en master <Badge>MIAGE</Badge> rentrée 2026.
           </p>
 
           <p>
@@ -58,9 +57,7 @@ export default function Home() {
           </p>
 
           <p>
-            Je travaille sur des projets personnels que je documente sur ce site — un jeu multijoueur loups-garous
-            avec <Badge>Godot</Badge> et <Badge>FastAPI</Badge>, un projet <Badge>ML/IA</Badge> avec PyTorch,
-            et une application SaaS de conversion de documents. Retrouve-les sur la page{" "}
+            En parallèle de mes études, je travaille sur des projets personnels — applications web, logiciels, jeux et IA. Retrouve-les sur la page{" "}
             <Link
               href="/blog"
               className="underline underline-offset-2 text-zinc-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -77,7 +74,7 @@ export default function Home() {
           </p>
 
           <p>
-            En dehors du code, j&apos;aime la musique, les séries, les échecs et les maths (toujours un peu).
+            En dehors du code, j&apos;aime la musique, le basket, les échecs et les maths (toujours un peu).
           </p>
         </div>
 
