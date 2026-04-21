@@ -1,0 +1,44 @@
+---
+title: "ThinkBoard — Ma première app MERN"
+date: "2024-12-01"
+description: "Application de prise de notes full-stack construite avec MongoDB, Express, React et Node.js — ma première expérience avec le stack MERN."
+tags: ["projet", "mern", "react", "mongodb", "node.js", "fullstack"]
+github: "https://github.com/raoufvro67/thinkpboard"
+---
+
+## Présentation
+
+ThinkBoard est une application de **prise de notes full-stack** — c'est le premier projet où j'ai utilisé le **stack MERN** en entier. L'idée est simple : créer, modifier et supprimer des notes avec un titre et une description, le tout avec une UI responsive et une API REST fonctionnelle derrière.
+
+## Stack
+
+- **MongoDB** — base de données NoSQL pour stocker les notes
+- **Express.js** — serveur et routes API
+- **React** — interface utilisateur
+- **Node.js** — runtime backend
+- **Upstash Redis** — rate limiting (protection contre les abus)
+
+## Fonctionnalités
+
+- Créer, modifier et supprimer des notes
+- API REST complète (GET, POST, PUT, DELETE)
+- **Rate limiting** avec Upstash Redis — une vraie notion de production
+- UI entièrement responsive
+- Architecture séparée frontend / backend
+
+## Architecture
+
+```
+frontend/   → React (Vite)
+backend/    → Express + MongoDB
+                ↕
+            Upstash Redis (rate limiting)
+```
+
+## Ce que j'ai appris
+
+C'est le projet qui m'a permis de comprendre comment **frontend et backend communiquent** dans une vraie app. Avant ça, j'avais fait du frontend isolé ou du backend sans interface — là, tout est connecté.
+
+La partie la plus intéressante était le **rate limiting avec Redis** : limiter le nombre de requêtes par IP pour éviter les abus. C'est une notion qu'on voit en production mais rarement dans les projets scolaires — l'intégrer sur une petite app m'a bien aidé à comprendre le concept.
+
+J'ai aussi mieux saisi la différence **SQL vs NoSQL** en pratique : MongoDB est très flexible pour des données comme des notes (structure variable, pas de schéma rigide imposé), mais cette flexibilité demande de la rigueur côté code.
