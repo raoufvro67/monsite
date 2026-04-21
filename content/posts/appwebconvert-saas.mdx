@@ -1,0 +1,56 @@
+---
+title: "AppWebConvert — Application SaaS de conversion de documents"
+date: "2025-03-01"
+description: "Application SaaS full-stack pour convertir des documents (PDF, DOCX, XLSX...) avec une architecture asynchrone : React, Node.js, BullMQ, LibreOffice, PostgreSQL et S3."
+tags: ["projet", "saas", "fullstack", "docker", "typescript", "react", "postgresql"]
+github: "https://github.com/raoufvro67/AppWebConvert"
+---
+
+## Présentation
+
+AppWebConvert est une **application SaaS de conversion de documents** — on peut uploader un fichier (PDF, DOCX, XLSX, PPTX...) et le convertir dans un autre format, avec suivi du statut en temps réel. C'est le projet le plus ambitieux en termes d'architecture que j'ai construit.
+
+## Architecture
+
+```
+Frontend (React)
+      ↓
+Backend API (Node.js / Express)
+      ↓
+Queue de traitement (BullMQ + Redis)
+      ↓
+Service de conversion (LibreOffice)
+      ↓
+Stockage (S3 ou local)
+      ↓
+Base de données (PostgreSQL)
+```
+
+La conversion est **asynchrone** : quand tu uploades un fichier, il est placé dans une **queue BullMQ** traitée par un worker. Pendant ce temps, le frontend poll le statut en temps réel. Ça évite de bloquer le serveur sur des conversions longues.
+
+## Stack technique
+
+- **React + TypeScript** — frontend
+- **Node.js / Express + TypeScript** — API REST
+- **BullMQ + Redis** — queue de traitement asynchrone
+- **LibreOffice** — moteur de conversion (via un service dédié)
+- **PostgreSQL** — stockage des métadonnées et historique
+- **AWS S3** — stockage des fichiers (optionnel, mode local disponible)
+- **Docker Compose** — orchestration de tous les services
+
+## Fonctionnalités
+
+- Upload par glisser-déposer
+- Conversion entre tous les formats bureautiques (PDF, DOCX, XLSX, PPTX, ODT, HTML, TXT...)
+- Suivi en temps réel du statut de conversion
+- Historique des conversions par utilisateur
+- API REST complète et documentée
+- Mode stockage local (sans S3) pour le développement
+
+## Ce que j'ai appris
+
+C'est le premier projet où j'ai mis en place une **architecture orientée queue**. Avant ça, mes APIs étaient toutes synchrones — le client attendait la réponse. Ici, la conversion peut prendre plusieurs secondes, donc il faut découpler la réception de la requête du traitement réel.
+
+**BullMQ avec Redis** m'a appris à penser en termes de workers, de jobs et de retry. Si un job échoue (LibreOffice plante, S3 indisponible), il est automatiquement re-tenté.
+
+**Docker Compose** était aussi une vraie découverte — orchestrer PostgreSQL, Redis et LibreOffice ensemble, avec des healthchecks pour s'assurer que les services démarrent dans le bon ordre. C'est ce qu'on retrouve dans beaucoup de vraies architectures de prod.
