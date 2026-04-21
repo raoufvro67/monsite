@@ -1,0 +1,48 @@
+---
+title: "GestDeTache — Gestionnaire de tâches collaboratif"
+date: "2025-04-01"
+description: "Application full-stack de gestion de tâches en équipe, construite après une formation en ligne : Symfony 7, API Platform, JWT, Next.js 14 et Docker."
+tags: ["projet", "fullstack", "symfony", "next.js", "postgresql", "docker", "jwt"]
+github: "https://github.com/raoufvro67/GestDeTache"
+---
+
+## Présentation
+
+GestDeTache est une application de **gestion de tâches collaborative** — des équipes peuvent créer des projets, inviter des membres et assigner des tâches. C'est le projet que j'ai réalisé à la suite d'une formation en ligne pour mettre en pratique **Symfony 7** et **API Platform**, deux technos que je ne connaissais pas avant.
+
+## Stack
+
+- **Symfony 7** + **API Platform** — backend et API REST
+- **JWT** (LexikJWTAuthenticationBundle) — authentification stateless
+- **PostgreSQL** + **Doctrine ORM** — base de données
+- **Next.js 14** (App Router) + **Tailwind CSS** — frontend
+- **Docker Compose** — orchestration de tous les services
+
+## Architecture
+
+```
+frontend/   Next.js 14 (port 3000)
+      ↕  HTTP + JWT
+backend/    Symfony 7 + API Platform (port 8000)
+      ↕
+      PostgreSQL (port 5432)
+```
+
+Les entités principales : `User`, `Project`, `Task`, `ProjectMember` — avec des relations ManyToOne / OneToMany gérées par Doctrine.
+
+## Fonctionnalités
+
+- Inscription / connexion avec token JWT
+- Création de projets et invitation de membres (rôles : owner, admin, member, viewer)
+- Gestion des tâches avec statuts, priorités et filtres
+- Dashboard avec statistiques globales
+- Documentation API auto-générée par API Platform (Swagger)
+- Tests unitaires et fonctionnels avec PHPUnit
+
+## Ce que j'ai appris
+
+C'est le projet qui m'a vraiment appris **Symfony** de A à Z. Avant, je faisais du backend avec Express ou FastAPI — passer à Symfony, c'est un autre monde : les firewalls, le Security Bundle, les voters, les access_control dans le YAML... La courbe d'apprentissage est raide mais le framework est très solide.
+
+**API Platform** m'a aussi surpris : en annotant une entité avec `#[ApiResource]`, tu as automatiquement un CRUD complet avec filtres, pagination et doc Swagger. Mais dès que tu veux de la logique métier custom, il faut passer par les **State Providers et Processors** — c'est là que ça devient intéressant.
+
+Côté frontend, j'ai utilisé **TanStack Query** pour la première fois pour gérer le cache et les mutations — bien plus propre que du `useEffect` + `fetch` manuel.
