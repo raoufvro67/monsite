@@ -67,17 +67,8 @@ export default function Home() {
 
           <p>
             Mon domaine d'expertise :{" "}
-            <Badge>React</Badge> <Badge>Next.js</Badge> <Badge>TypeScript</Badge>{" "}
-            <Badge>Python</Badge> <Badge>Java</Badge> <Badge>Docker</Badge>{" "}
-            <Badge>PostgreSQL</Badge>.
           </p>
-
-          <p>
-            En dehors du code, j&apos;aime la musique, le basket, les échecs et les maths (toujours un peu).
-          </p>
-        </div>
-
-        {/* Expertise */}
+                  {/* Expertise */}
         <div className="space-y-4">
           <h2 className="text-sm font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
             Domaines d&apos;expertise
@@ -109,6 +100,13 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+          <p>
+            En dehors du code, j&apos;aime la musique, le basket, les échecs et les maths (toujours un peu).
+          </p>
+        </div>
+
+
 
         {/* Chess */}
         <ChessWidget />
