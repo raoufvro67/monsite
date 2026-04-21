@@ -1,0 +1,49 @@
+---
+title: "Monopoly Multiplayer — Projet intégrateur L2"
+date: "2024-05-15"
+description: "Jeu Monopoly multijoueur en ligne développé avec Godot 4 côté client et FastAPI WebSockets côté serveur."
+tags: ["projet", "scolaire", "L2", "godot", "python", "fastapi", "websockets"]
+---
+
+## Présentation
+
+Dans le cadre du **projet intégrateur de L2**, notre équipe a développé un **Monopoly multijoueur en ligne** jouable à plusieurs depuis des machines différentes. Le projet s'est construit autour de deux parties bien distinctes : un client graphique sous **Godot 4** et un serveur temps réel en **FastAPI**.
+
+## Architecture
+
+Le jeu repose sur une architecture **client/serveur** avec communication en **WebSockets** pour permettre la synchronisation en temps réel entre les joueurs.
+
+```
+Client (Godot 4)  ←——— WebSocket ———→  Serveur (FastAPI)
+```
+
+### Client — Godot 4
+
+Le client est entièrement développé dans **Godot 4.3**. Il gère :
+
+- L'affichage du plateau et des pièces
+- Les interactions joueur (lancer de dés, achat de propriétés, etc.)
+- La communication WebSocket avec le serveur
+- Compatible **Windows** et **Linux**
+
+### Serveur — FastAPI + WebSockets
+
+Le serveur Python tourne avec **Uvicorn** et expose un endpoint WebSocket. Il est responsable de :
+
+- Gérer les sessions de jeu et les joueurs connectés
+- Valider les actions et maintenir l'état de la partie
+- Diffuser les mises à jour à tous les clients en temps réel
+
+## Technologies utilisées
+
+- **Godot 4** — moteur de jeu (GDScript)
+- **Python 3.9+** — serveur
+- **FastAPI** — framework web
+- **WebSockets** — communication temps réel
+- **Uvicorn** — serveur ASGI
+
+## Ce que j'ai appris
+
+Ce projet m'a permis de comprendre concrètement comment fonctionne une architecture client/serveur en temps réel. Implémenter les **WebSockets** avec FastAPI et les synchroniser avec Godot n'était pas trivial — gérer les déconnexions, les états de jeu partagés et la cohérence entre clients était le vrai défi technique.
+
+C'est aussi le premier projet d&apos;équipe de cette envergure, avec gestion de version sur **GitLab** de l&apos;université. Travailler en équipe sur une base de code commune m&apos;a appris autant que le code lui-même.
