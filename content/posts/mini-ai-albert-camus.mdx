@@ -1,0 +1,44 @@
+---
+title: "Mini IA — Générateur de texte style Albert Camus"
+date: "2025-01-15"
+description: "Modèle de langage character-level entraîné sur L'Étranger de Camus — de l'architecture Bigram simple jusqu'à un mini GPT avec 6 couches Transformer."
+tags: ["projet", "ia", "python", "pytorch", "nlp", "deep-learning"]
+github: "https://github.com/raoufvro67/mini_ai_albert_camus"
+---
+
+## Présentation
+
+Ce projet est un **modèle de langage character-level** entraîné sur *L'Étranger* d'Albert Camus. L'objectif : générer du texte dans le style de Camus, caractère par caractère, en apprenant les patterns de son écriture.
+
+Deux modèles de complexité croissante sont implémentés — un **Bigram** simple pour comprendre les bases, et un **mini GPT** avec une vraie architecture Transformer pour la qualité.
+
+## Modèles
+
+### Bigram
+Le modèle le plus simple. Il prédit le prochain caractère uniquement en fonction du précédent. Architecture légère, entraînement en quelques minutes (3 000 steps). Utile pour comprendre les fondamentaux avant d'aller plus loin.
+
+### Mini GPT — Architecture Transformer
+
+Le modèle principal. Configuration :
+
+- **6 couches Transformer** avec multi-head self-attention
+- **6 têtes** d'attention
+- **384 dimensions** d'embedding
+- Fenêtre de contexte de **128 tokens**
+- Batch size : 32
+- Dropout : 0.2
+- ~**10 millions de paramètres**
+- Entraînement : 5 000 steps
+
+## Stack
+
+- **Python + PyTorch** — implémentation complète from scratch
+- Pas de librairie de haut niveau (pas de HuggingFace) — tout est codé à la main
+
+## Ce que j'ai appris
+
+C'est le projet qui m'a permis de vraiment **comprendre comment fonctionne un Transformer** de l'intérieur. Implémenter le multi-head self-attention from scratch avec PyTorch — les matrices Q, K, V, le masking causal, la normalisation — c'est très différent d'utiliser une librairie qui fait tout.
+
+Travailler au niveau **caractère** (plutôt que token ou mot) simplifie le vocabulaire mais rend la tâche plus difficile : le modèle doit apprendre la structure des mots en plus du style. Voir le modèle progressivement générer des phrases qui ressemblent à du Camus après l'entraînement était assez satisfaisant.
+
+Le projet est facilement adaptable à n'importe quel auteur — il suffit de remplacer `input.txt` par un autre texte.
