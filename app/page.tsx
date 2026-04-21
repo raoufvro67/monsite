@@ -40,8 +40,7 @@ export default function Home() {
         {/* Bio */}
         <div className="space-y-5 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-300">
           <p>
-            Hello 👋 Je suis un étudiant en <Badge>🎓 Licence Informatique</Badge> à l&apos;Université de Strasbourg,
-            futur étudiant en master <Badge>MIAGE</Badge> rentrée 2026.
+            Hello 👋 Je suis raouf jeune diplomé en licence software engineer a <Badge>🎓 L'UFR </Badge> de <Badge>l&apos;Université de Strasbourg</Badge> 
           </p>
 
           <p>
@@ -67,7 +66,7 @@ export default function Home() {
           </p>
 
           <p>
-            Ma stack principale :{" "}
+            Mon domaine d'expertise :{" "}
             <Badge>React</Badge> <Badge>Next.js</Badge> <Badge>TypeScript</Badge>{" "}
             <Badge>Python</Badge> <Badge>Java</Badge> <Badge>Docker</Badge>{" "}
             <Badge>PostgreSQL</Badge>.
@@ -76,6 +75,39 @@ export default function Home() {
           <p>
             En dehors du code, j&apos;aime la musique, le basket, les échecs et les maths (toujours un peu).
           </p>
+        </div>
+
+        {/* Expertise */}
+        <div className="space-y-4">
+          <h2 className="text-sm font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+            Domaines d&apos;expertise
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Ingénierie Logicielle</p>
+              <ul className="space-y-1">
+                {["Conception logicielle", "Architecture applicative", "API REST & microservices", "Tests unitaires", "Méthodes agiles (Scrum)"].map(s => (
+                  <li key={s} className="text-sm text-zinc-600 dark:text-zinc-300">{s}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Systèmes & Données</p>
+              <ul className="space-y-1">
+                {["Bases de données", "Linux / Unix", "Docker / CI/CD", "Sécurité applicative", "Cloud (S3, FastAPI)"].map(s => (
+                  <li key={s} className="text-sm text-zinc-600 dark:text-zinc-300">{s}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Design & Gestion</p>
+              <ul className="space-y-1">
+                {["UI/UX (Figma)", "Prototypage interactif", "Trello, Notion", "Analyse fonctionnelle"].map(s => (
+                  <li key={s} className="text-sm text-zinc-600 dark:text-zinc-300">{s}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Chess */}
