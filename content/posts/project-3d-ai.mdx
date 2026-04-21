@@ -1,0 +1,47 @@
+---
+title: "Project 3D AI — Personnalisation de t-shirt avec Three.js"
+date: "2024-10-01"
+description: "Mon premier projet Three.js : une app de personnalisation de t-shirt 3D avec React, @react-three/fiber et génération de décals via l'API DALL·E."
+tags: ["projet", "three.js", "react", "ia", "openai", "3d"]
+github: "https://github.com/raoufvro67/3dProduct"
+---
+
+## Présentation
+
+C'est mon **premier projet avec Three.js** — une application web de personnalisation de t-shirt en 3D. On peut changer la couleur du t-shirt, uploader une image ou générer un décal directement depuis un prompt grâce à **DALL·E** (API OpenAI).
+
+C'était une bonne façon de découvrir le rendu 3D dans le navigateur tout en combinant une vraie feature IA.
+
+## Stack
+
+- **React + Vite** — frontend
+- **Three.js** via **@react-three/fiber** et **Drei** — rendu 3D
+- **Express.js** — backend qui proxifie les appels OpenAI
+- **API DALL·E** — génération d'images depuis un prompt
+- **Tailwind CSS** — styles
+
+## Architecture
+
+```
+client/   → React + Three.js (port 5173)
+    ↕  HTTP
+server/   → Express proxy OpenAI (port 8080)
+    ↕  API
+          → OpenAI DALL·E
+```
+
+Le client envoie un prompt au serveur Express, qui appelle l'API DALL·E et retourne une image en base64 que Three.js applique directement comme décal sur le modèle GLB du t-shirt.
+
+## Ce que j'ai appris
+
+**Three.js / React Three Fiber** est une vraie courbe d'apprentissage. La partie la plus délicate était la gestion des matériaux et de l'éclairage — le t-shirt restait complètement noir pendant longtemps faute de lumières dans la scène. Il faut bien configurer `ambientLight`, `directionalLight` et s'assurer que le matériau n'a pas de texture baked qui masque la couleur.
+
+Intégrer **DALL·E** était en revanche assez simple — l'API retourne une image base64 qu'on passe directement à Three.js comme texture. Le vrai problème était la facturation OpenAI qui plafonne rapidement sur un compte gratuit.
+
+## Problèmes rencontrés
+
+- **T-shirt noir** → problème d'éclairage. Solution : ajouter `hemisphereLight` + `directionalLight` dans le Canvas.
+- **`billing_hard_limit_reached`** → quota DALL·E atteint. Solution : mocker la réponse en dev ou utiliser une autre clé.
+- **Cache du modèle GLB** → forcer le rechargement avec un cache-buster : `useGLTF('/model.glb?t=' + Date.now())`.
+
+C&apos;est le projet qui m&apos;a le plus appris sur le debugging 3D dans un navigateur — exposer `window.DEBUG_MAT` et `window.DEBUG_SCENE` dans la console pour inspecter les matériaux en live était une astuce très utile.
